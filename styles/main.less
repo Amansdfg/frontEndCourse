@@ -1,0 +1,67 @@
+@import "variables.less";
+@import "mixins.less";
+
+html,
+body {
+    .theme();
+    min-height: 100%;
+}
+
+.container {
+    .margin-size(md);
+    padding: @page-margin;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: @card-gap;
+
+        .card {
+            grid-column: span 6;
+            background: fade(#fff, 4%);
+            border: 1px solid fade(@fg, 10%);
+            border-radius: @radius;
+            padding: (@card-gap * 1.5);
+            box-shadow: 0 6px 22px fade(#000, 30%);
+
+            h2 {
+                margin: 0 0 (@card-gap * .75) 0;
+                font-size: (@font-size-base * 1.375);
+            }
+
+            p {
+                margin: 0;
+                line-height: 1.6;
+                color: fade(@fg, 90%);
+            }
+        }
+
+        @media (max-width: 720px) {
+            .card {
+                grid-column: 1 / -1;
+            }
+        }
+    }
+}
+
+.btn {
+    .btn-base();
+}
+
+.btn-primary {
+    &:extend(.btn all);
+    .btn-variant(@accent);
+}
+
+.btn-ghost {
+    &:extend(.btn all);
+    background: transparent;
+    border-color: fade(@fg, 18%);
+
+    &:hover {
+        background: fade(#fff, 6%);
+    }
+}

@@ -9,7 +9,7 @@ const activate = (i) => {
     if (links[i]) links[i].classList.add('active');
 }
 const onScroll = () => {
-    let idx = 0; const top = window.scrollY + 1;
+    let idx = 0; const top = window.scrollY + 120;
     for (let i = 0; i < ids.length; i++) {
         const s = ids[i];
         if (s && s.offsetTop <= top) idx = i;

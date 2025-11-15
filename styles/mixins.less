@@ -1,0 +1,47 @@
+.theme(@background: @bg; @color: @fg; @baseSize: @font-size-base; @family: @font-family-base) {
+    background: @background;
+    color: @color;
+    font-size: @baseSize;
+    font-family: @family;
+}
+
+.margin-size(@size) when (@size =sm) {
+    margin: ceil(@page-margin * .5);
+}
+
+.margin-size(@size) when (@size =md) {
+    margin: @page-margin;
+}
+
+.margin-size(@size) when (@size =lg) {
+    margin: ceil(@page-margin * 1.5);
+}
+
+
+
+.btn-base() {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: @radius;
+    border: 1px solid fade(@fg, 12%);
+    background: fade(#fff, 3%);
+    color: @fg;
+    cursor: pointer;
+    transition: transform .08s ease, background .2s ease;
+
+    &:hover {
+        transform: translateY(-1px);
+    }
+}
+
+.btn-variant(@c: @accent) {
+    background: linear-gradient(180deg, lighten(@c, 12%), @c);
+    border-color: darken(@c, 10%);
+    color: #0b1220;
+
+    &:hover {
+        background: linear-gradient(180deg, lighten(@c, 18%), lighten(@c, 5%));
+    }
+}
